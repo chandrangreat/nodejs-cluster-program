@@ -14,6 +14,13 @@ if(cluster.isPrimary) {
     cluster.on('exit', (worker, code, signal) => {
         console.log(`Worker ${worker.process.pid} died`)
     })
+
+    process.on('SIGINT', () => {
+        for(const id in cluster.workers) {
+            console.log(`Shutting down worker ${id} gracefully`);
+            cluster.workers[id].disconnect();
+        }
+    })
 } else {
     const server = http.createServer((req, res) => {
         res.writeHead(200, {'Content-Type': 'text/plain'});
