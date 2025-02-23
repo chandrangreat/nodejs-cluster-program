@@ -1,0 +1,12 @@
+{
+  "name": "cluster",
+  "version": "1.0.0",
+  "description": "A program in NodeJs to try out cluster module along with hey library for load testing. Using this we can check how NodeJs evenly distributes network requests across the CPU cores.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Ravi Chandran",
+  "license": "ISC"
+}
